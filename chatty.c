@@ -554,7 +554,6 @@ static void *Working(void *arg){
 						InvioUserList(msg,fd);
 						break;
 					}case(GETPREVMSGS_OP):{
-						printf("QUIDIOCANE\n")
 						DownloadHistoryMSG(msg,fd);
 						break;
 					}case(UNREGISTER_OP):{
