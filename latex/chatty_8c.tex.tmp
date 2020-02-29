@@ -1,0 +1,427 @@
+\hypertarget{chatty_8c}{}\section{chatty.\+c File Reference}
+\label{chatty_8c}\index{chatty.\+c@{chatty.\+c}}
+
+
+File principale del server chatterbox.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$libgen.\+h$>$}\\*
+{\ttfamily \#include $<$stats.\+h$>$}\\*
+{\ttfamily \#include $<$sys/select.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$sys/un.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$mylib.\+h$>$}\\*
+{\ttfamily \#include $<$icl\+\_\+hash.\+h$>$}\\*
+{\ttfamily \#include $<$ops.\+h$>$}\\*
+{\ttfamily \#include $<$message.\+h$>$}\\*
+{\ttfamily \#include $<$connections.\+h$>$}\\*
+{\ttfamily \#include $<$sys/signalfd.\+h$>$}\\*
+{\ttfamily \#include $<$user.\+h$>$}\\*
+{\ttfamily \#include $<$history.\+h$>$}\\*
+{\ttfamily \#include $<$config.\+h$>$}\\*
+{\ttfamily \#include $<$parset.\+h$>$}\\*
+{\ttfamily \#include $<$queue.\+h$>$}\\*
+Include dependency graph for chatty.\+c\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structuser}{user}
+\item 
+struct \hyperlink{structsigHandlerArgs}{sig\+Handler\+Args}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries \+\_\+\+P\+O\+S\+I\+X\+\_\+\+C\+\_\+\+S\+O\+U\+R\+CE}~200809L\hypertarget{chatty_8c_a3024ccd4a9af5109d24e6c57565d74a1}{}\label{chatty_8c_a3024ccd4a9af5109d24e6c57565d74a1}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structuser}{user} {\bfseries u}\hypertarget{chatty_8c_a6f4227ba1413274c71f07447adc45a1b}{}\label{chatty_8c_a6f4227ba1413274c71f07447adc45a1b}
+
+\item 
+typedef struct \hyperlink{structsigHandlerArgs}{sig\+Handler\+Args} {\bfseries sig\+Handler\+Args\+\_\+t}\hypertarget{chatty_8c_a2400df688f554dfdc57b3bfbd3dd8f9d}{}\label{chatty_8c_a2400df688f554dfdc57b3bfbd3dd8f9d}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{chatty_8c_a4b66d5e31b5dc18b314c8a68163263bd}{cleanup} ()
+\begin{DoxyCompactList}\small\item\em elimina il socket ovvero chatty\+\_\+socket in tmp \end{DoxyCompactList}\item 
+\hyperlink{structuser}{u} $\ast$ \hyperlink{chatty_8c_ad870c1c961e58625c541941939ee1c7d}{create\+User} (long fd, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em crea utente da inserire in tab hash \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_a64c4fee0a911d24640f2cee6a1d2cb0b}{deleteuser} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em svuota il campo data di utente in hash \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_a9c75c7da4964397dc51591f1900424d0}{deleteuser2} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em svuota il campo data di utente creato ma già presente in hash \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_a5878bc8c7c42be03b281d5b267783045}{deletekey} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em svuota il campo key di utente in hash \end{DoxyCompactList}\item 
+long \hyperlink{chatty_8c_aa39751ab56fd6fbffcd55209244394f6}{update\+\_\+max} (fd\+\_\+set $\ast$set, long max)
+\begin{DoxyCompactList}\small\item\em funzione usata per aggiornare il massimo fd in set della select \end{DoxyCompactList}\item 
+\hyperlink{structmessage__t}{message\+\_\+t} \hyperlink{chatty_8c_a7060bd9f592ff5d653c5aea67e8c6f10}{create\+\_\+copy\+\_\+msg} (\hyperlink{structmessage__t}{message\+\_\+t} message)
+\begin{DoxyCompactList}\small\item\em crea una copia del messaggio da inserire in history \end{DoxyCompactList}\item 
+int \hyperlink{chatty_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em funzione main del server chatty \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_aac41f4a9570a3e9cce662c70262f59e2}{Registra} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em svolge operazione di registrazione utente \end{DoxyCompactList}\item 
+int \hyperlink{chatty_8c_a4bc19f152e8dc8b527dec4eaf6707ae5}{Connetti} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em svolge operazione di connessione utente \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_adf455e338c525156c6928198d2370430}{Invia\+Txt\+To\+One} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia messaggio ad un altro utente registrato \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_afd35590bd0b61aa3c58d74e859340ce8}{Invia\+Txt\+To\+All} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia messaggio a tutti gli utenti registrati \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_ab7590df669f603d4943912f2896805fe}{Invia\+File\+To\+One} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia file ad un altro utente registrato \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_add91710e8e2d6158b8f30cde2f04cee0}{Download\+File} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em svolge richiesta download file \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_a3fd2a5d433921a2759121f4a8f5a8700}{Invio\+User\+List} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia lista utenti registrati \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_a5427afcd254b93b4f9d9fc34b350aa2a}{Download\+History\+M\+SG} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em scarica l\textquotesingle{}history dell\textquotesingle{}utente sender \end{DoxyCompactList}\item 
+void \hyperlink{chatty_8c_ab47d3930633d5dca199d2f9c316e1937}{Deregistra} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em elimina da hash utente sender \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstatistics}{statistics} \hyperlink{chatty_8c_a9e4166354e886d074465ab1bb87ca0e2}{chatty\+Stats} =\{0,0,0,0,0,0,0\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File principale del server chatterbox. 
+
+\begin{DoxyAuthor}{Author}
+Nicolo` Maio 544935
+\end{DoxyAuthor}
+Si dichiara che il contenuto di questo file e\textquotesingle{} in ogni sua parte opera originale dell\textquotesingle{}autore 
+
+\subsection{Function Documentation}
+\index{chatty.\+c@{chatty.\+c}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{cleanup()}{cleanup()}}]{\setlength{\rightskip}{0pt plus 5cm}void cleanup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a4b66d5e31b5dc18b314c8a68163263bd}{}\label{chatty_8c_a4b66d5e31b5dc18b314c8a68163263bd}
+
+
+elimina il socket ovvero chatty\+\_\+socket in tmp 
+
+cleanup \index{chatty.\+c@{chatty.\+c}!Connetti@{Connetti}}
+\index{Connetti@{Connetti}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Connetti(message\+\_\+t msg, long fd)}{Connetti(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}int Connetti (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a4bc19f152e8dc8b527dec4eaf6707ae5}{}\label{chatty_8c_a4bc19f152e8dc8b527dec4eaf6707ae5}
+
+
+svolge operazione di connessione utente 
+
+Connetti 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: messaggio inviato dall\textquotesingle{}utente che si vuole connettere \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che si vuole connettere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se utente connesso con successo -\/1 altrimenti 
+\end{DoxyReturn}
+\index{chatty.\+c@{chatty.\+c}!create\+\_\+copy\+\_\+msg@{create\+\_\+copy\+\_\+msg}}
+\index{create\+\_\+copy\+\_\+msg@{create\+\_\+copy\+\_\+msg}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{create\+\_\+copy\+\_\+msg(message\+\_\+t message)}{create_copy_msg(message_t message)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf message\+\_\+t} create\+\_\+copy\+\_\+msg (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a7060bd9f592ff5d653c5aea67e8c6f10}{}\label{chatty_8c_a7060bd9f592ff5d653c5aea67e8c6f10}
+
+
+crea una copia del messaggio da inserire in history 
+
+create\+\_\+copy\+\_\+msg 
+\begin{DoxyParams}{Parameters}
+{\em } & message messaggio da copiare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+copia del messaggio passato come parametro 
+\end{DoxyReturn}
+\index{chatty.\+c@{chatty.\+c}!create\+User@{create\+User}}
+\index{create\+User@{create\+User}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{create\+User(long fd, char $\ast$name)}{createUser(long fd, char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u} $\ast$ create\+User (
+\begin{DoxyParamCaption}
+\item[{long}]{fd, }
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_ad870c1c961e58625c541941939ee1c7d}{}\label{chatty_8c_ad870c1c961e58625c541941939ee1c7d}
+
+
+crea utente da inserire in tab hash 
+
+create\+User 
+\begin{DoxyParams}{Parameters}
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente da registrare \\
+\hline
+{\em name} & \+: nome dell\textquotesingle{}utente da registrare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+puntatore a struttura del nuovo utente 
+\end{DoxyReturn}
+\index{chatty.\+c@{chatty.\+c}!deletekey@{deletekey}}
+\index{deletekey@{deletekey}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{deletekey(void $\ast$arg)}{deletekey(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void deletekey (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a5878bc8c7c42be03b281d5b267783045}{}\label{chatty_8c_a5878bc8c7c42be03b281d5b267783045}
+
+
+svuota il campo key di utente in hash 
+
+deletekey 
+\begin{DoxyParams}{Parameters}
+{\em arg} & \+: puntatore a componenti del campo key dell\textquotesingle{}utente in hash \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!deleteuser@{deleteuser}}
+\index{deleteuser@{deleteuser}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{deleteuser(void $\ast$arg)}{deleteuser(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void deleteuser (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a64c4fee0a911d24640f2cee6a1d2cb0b}{}\label{chatty_8c_a64c4fee0a911d24640f2cee6a1d2cb0b}
+
+
+svuota il campo data di utente in hash 
+
+deleteuser 
+\begin{DoxyParams}{Parameters}
+{\em arg} & \+: puntatore a componenti del campo data dell\textquotesingle{}utente in hash \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!deleteuser2@{deleteuser2}}
+\index{deleteuser2@{deleteuser2}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{deleteuser2(void $\ast$arg)}{deleteuser2(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void deleteuser2 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a9c75c7da4964397dc51591f1900424d0}{}\label{chatty_8c_a9c75c7da4964397dc51591f1900424d0}
+
+
+svuota il campo data di utente creato ma già presente in hash 
+
+deleteuser2 
+\begin{DoxyParams}{Parameters}
+{\em arg} & \+: puntatore a componenti del campo data dell\textquotesingle{}utente \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Deregistra@{Deregistra}}
+\index{Deregistra@{Deregistra}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Deregistra(message\+\_\+t msg, long fd)}{Deregistra(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Deregistra (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_ab47d3930633d5dca199d2f9c316e1937}{}\label{chatty_8c_ab47d3930633d5dca199d2f9c316e1937}
+
+
+elimina da hash utente sender 
+
+Deregistra 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene indo utente da deregistrare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede deregistrazione \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Download\+File@{Download\+File}}
+\index{Download\+File@{Download\+File}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Download\+File(message\+\_\+t msg, long fd)}{DownloadFile(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Download\+File (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_add91710e8e2d6158b8f30cde2f04cee0}{}\label{chatty_8c_add91710e8e2d6158b8f30cde2f04cee0}
+
+
+svolge richiesta download file 
+
+Download\+File 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info del file da scaricare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede Download\+File \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Download\+History\+M\+SG@{Download\+History\+M\+SG}}
+\index{Download\+History\+M\+SG@{Download\+History\+M\+SG}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Download\+History\+M\+S\+G(message\+\_\+t msg, long fd)}{DownloadHistoryMSG(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Download\+History\+M\+SG (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a5427afcd254b93b4f9d9fc34b350aa2a}{}\label{chatty_8c_a5427afcd254b93b4f9d9fc34b350aa2a}
+
+
+scarica l\textquotesingle{}history dell\textquotesingle{}utente sender 
+
+Download\+History\+M\+SG 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info per scaricare history \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede download history \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Invia\+File\+To\+One@{Invia\+File\+To\+One}}
+\index{Invia\+File\+To\+One@{Invia\+File\+To\+One}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Invia\+File\+To\+One(message\+\_\+t msg, long fd)}{InviaFileToOne(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invia\+File\+To\+One (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_ab7590df669f603d4943912f2896805fe}{}\label{chatty_8c_ab7590df669f603d4943912f2896805fe}
+
+
+invia file ad un altro utente registrato 
+
+Invia\+File\+To\+One 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info del file da inviare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che invia \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Invia\+Txt\+To\+All@{Invia\+Txt\+To\+All}}
+\index{Invia\+Txt\+To\+All@{Invia\+Txt\+To\+All}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Invia\+Txt\+To\+All(message\+\_\+t msg, long fd)}{InviaTxtToAll(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invia\+Txt\+To\+All (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_afd35590bd0b61aa3c58d74e859340ce8}{}\label{chatty_8c_afd35590bd0b61aa3c58d74e859340ce8}
+
+
+invia messaggio a tutti gli utenti registrati 
+
+Invia\+Txt\+To\+All 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info messaggio da inviare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che invia \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Invia\+Txt\+To\+One@{Invia\+Txt\+To\+One}}
+\index{Invia\+Txt\+To\+One@{Invia\+Txt\+To\+One}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Invia\+Txt\+To\+One(message\+\_\+t msg, long fd)}{InviaTxtToOne(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invia\+Txt\+To\+One (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_adf455e338c525156c6928198d2370430}{}\label{chatty_8c_adf455e338c525156c6928198d2370430}
+
+
+invia messaggio ad un altro utente registrato 
+
+Invia\+Txt\+To\+One 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info messaggio da inviare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che invia \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!Invio\+User\+List@{Invio\+User\+List}}
+\index{Invio\+User\+List@{Invio\+User\+List}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Invio\+User\+List(message\+\_\+t msg, long fd)}{InvioUserList(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invio\+User\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a3fd2a5d433921a2759121f4a8f5a8700}{}\label{chatty_8c_a3fd2a5d433921a2759121f4a8f5a8700}
+
+
+invia lista utenti registrati 
+
+Invio\+User\+List 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info per inviare lista utenti registrati a utente sender \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede User\+List degli utenti registrati \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!main@{main}}
+\index{main@{main}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\label{chatty_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+funzione main del server chatty 
+
+main \index{chatty.\+c@{chatty.\+c}!Registra@{Registra}}
+\index{Registra@{Registra}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{Registra(message\+\_\+t msg, long fd)}{Registra(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Registra (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_aac41f4a9570a3e9cce662c70262f59e2}{}\label{chatty_8c_aac41f4a9570a3e9cce662c70262f59e2}
+
+
+svolge operazione di registrazione utente 
+
+Registra 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: messaggio inviato dall\textquotesingle{}utente che si vuole registrare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che si vuole registrare \\
+\hline
+\end{DoxyParams}
+\index{chatty.\+c@{chatty.\+c}!update\+\_\+max@{update\+\_\+max}}
+\index{update\+\_\+max@{update\+\_\+max}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{update\+\_\+max(fd\+\_\+set $\ast$set, long max)}{update_max(fd_set *set, long max)}}]{\setlength{\rightskip}{0pt plus 5cm}long update\+\_\+max (
+\begin{DoxyParamCaption}
+\item[{fd\+\_\+set $\ast$}]{set, }
+\item[{long}]{max}
+\end{DoxyParamCaption}
+)}\hypertarget{chatty_8c_aa39751ab56fd6fbffcd55209244394f6}{}\label{chatty_8c_aa39751ab56fd6fbffcd55209244394f6}
+
+
+funzione usata per aggiornare il massimo fd in set della select 
+
+update\+\_\+max 
+\begin{DoxyParams}{Parameters}
+{\em set} & \+: insieme degli fd su cui legge la select \\
+\hline
+{\em max} & \+: valore di max fd attuale\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nuovo fd max 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\index{chatty.\+c@{chatty.\+c}!chatty\+Stats@{chatty\+Stats}}
+\index{chatty\+Stats@{chatty\+Stats}!chatty.\+c@{chatty.\+c}}
+\subsubsection[{\texorpdfstring{chatty\+Stats}{chattyStats}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf statistics} chatty\+Stats =\{0,0,0,0,0,0,0\}}\hypertarget{chatty_8c_a9e4166354e886d074465ab1bb87ca0e2}{}\label{chatty_8c_a9e4166354e886d074465ab1bb87ca0e2}
+struttura che memorizza le statistiche del server, struct statistics e\textquotesingle{} definita in \hyperlink{stats_8h}{stats.\+h}. 

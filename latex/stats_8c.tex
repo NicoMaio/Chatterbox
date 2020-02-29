@@ -1,0 +1,93 @@
+\hypertarget{stats_8c}{}\section{stats.\+c File Reference}
+\label{stats_8c}\index{stats.\+c@{stats.\+c}}
+
+
+Contiene implementazione funzioni dichiarate in \hyperlink{stats_8h}{stats.\+h}.  
+
+
+{\ttfamily \#include $<$stats.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+Include dependency graph for stats.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{stats_8c_a6c28d40ce4619979cc85b074940a8975}{read\+Nonline} ()
+\begin{DoxyCompactList}\small\item\em legge in mutua esclusione nonline \end{DoxyCompactList}\item 
+int \hyperlink{stats_8c_aeec1c3a1f6f89a53f626a4af6ea7486d}{read\+Nusers} ()
+\begin{DoxyCompactList}\small\item\em legge in mutua esclusione nusers \end{DoxyCompactList}\item 
+void \hyperlink{stats_8c_af8ec79cb71741b877ba9b47237128718}{aggiorna\+Stats} (int users, int online, int mdelivered, int mnotdelivered, int fdelivered, int fnotdelivered, int errors)
+\begin{DoxyCompactList}\small\item\em aggiorna in mutua esclusione tutti i puntatori delle stats \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contiene implementazione funzioni dichiarate in \hyperlink{stats_8h}{stats.\+h}. 
+
+\begin{DoxyAuthor}{Author}
+Nicolo` Maio 544935
+\end{DoxyAuthor}
+Si dichiara che il contenuto di questo file e\textquotesingle{} in ogni sua parte opera originale dell\textquotesingle{}autore 
+
+\subsection{Function Documentation}
+\index{stats.\+c@{stats.\+c}!aggiorna\+Stats@{aggiorna\+Stats}}
+\index{aggiorna\+Stats@{aggiorna\+Stats}!stats.\+c@{stats.\+c}}
+\subsubsection[{\texorpdfstring{aggiorna\+Stats(int users, int online, int mdelivered, int mnotdelivered, int fdelivered, int fnotdelivered, int errors)}{aggiornaStats(int users, int online, int mdelivered, int mnotdelivered, int fdelivered, int fnotdelivered, int errors)}}]{\setlength{\rightskip}{0pt plus 5cm}void aggiorna\+Stats (
+\begin{DoxyParamCaption}
+\item[{int}]{users, }
+\item[{int}]{online, }
+\item[{int}]{mdelivered, }
+\item[{int}]{mnotdelivered, }
+\item[{int}]{fdelivered, }
+\item[{int}]{fnotdelivered, }
+\item[{int}]{errors}
+\end{DoxyParamCaption}
+)}\hypertarget{stats_8c_af8ec79cb71741b877ba9b47237128718}{}\label{stats_8c_af8ec79cb71741b877ba9b47237128718}
+
+
+aggiorna in mutua esclusione tutti i puntatori delle stats 
+
+aggiorna\+Stats 
+\begin{DoxyParams}{Parameters}
+{\em users} & nuovo n. di utenti registrati \\
+\hline
+{\em online} & nuovo n. di utenti connessi \\
+\hline
+{\em mdelivered} & nuovo n. di messaggi testuali consegnati \\
+\hline
+{\em mnotdelivered} & nuovo n. di messaggi testuali non ancora consegnati \\
+\hline
+{\em fdelivered} & nuovo n. di file consegnati \\
+\hline
+{\em fnotdelivered} & nuovo n. di file non ancora consegnati \\
+\hline
+{\em errors} & nuovo n. di messaggi di Errore \\
+\hline
+\end{DoxyParams}
+\index{stats.\+c@{stats.\+c}!read\+Nonline@{read\+Nonline}}
+\index{read\+Nonline@{read\+Nonline}!stats.\+c@{stats.\+c}}
+\subsubsection[{\texorpdfstring{read\+Nonline()}{readNonline()}}]{\setlength{\rightskip}{0pt plus 5cm}int read\+Nonline (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{stats_8c_a6c28d40ce4619979cc85b074940a8975}{}\label{stats_8c_a6c28d40ce4619979cc85b074940a8975}
+
+
+legge in mutua esclusione nonline 
+
+read\+Nonline \begin{DoxyReturn}{Returns}
+nonline 
+\end{DoxyReturn}
+\index{stats.\+c@{stats.\+c}!read\+Nusers@{read\+Nusers}}
+\index{read\+Nusers@{read\+Nusers}!stats.\+c@{stats.\+c}}
+\subsubsection[{\texorpdfstring{read\+Nusers()}{readNusers()}}]{\setlength{\rightskip}{0pt plus 5cm}int read\+Nusers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{stats_8c_aeec1c3a1f6f89a53f626a4af6ea7486d}{}\label{stats_8c_aeec1c3a1f6f89a53f626a4af6ea7486d}
+
+
+legge in mutua esclusione nusers 
+
+read\+Nusers \begin{DoxyReturn}{Returns}
+nusers 
+\end{DoxyReturn}

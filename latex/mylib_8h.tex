@@ -1,0 +1,300 @@
+\hypertarget{mylib_8h}{}\section{mylib.\+h File Reference}
+\label{mylib_8h}\index{mylib.\+h@{mylib.\+h}}
+
+
+Contiene librerie delle funzioni implementate in \hyperlink{chatty_8c}{chatty.\+c}.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stats.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$message.\+h$>$}\\*
+Include dependency graph for mylib.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries S\+Y\+S\+C\+A\+LL}(a,  b,  c)~if((a=b)==-\/1) \{ perror(c);exit(errno); \}\hypertarget{mylib_8h_a4454d134a8f8352b134a0d25043e11d1}{}\label{mylib_8h_a4454d134a8f8352b134a0d25043e11d1}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mylib_8h_aac41f4a9570a3e9cce662c70262f59e2}{Registra} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em svolge operazione di registrazione utente \end{DoxyCompactList}\item 
+int \hyperlink{mylib_8h_a4bc19f152e8dc8b527dec4eaf6707ae5}{Connetti} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em svolge operazione di connessione utente \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_adf455e338c525156c6928198d2370430}{Invia\+Txt\+To\+One} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia messaggio ad un altro utente registrato \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_afd35590bd0b61aa3c58d74e859340ce8}{Invia\+Txt\+To\+All} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia messaggio a tutti gli utenti registrati \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_ab7590df669f603d4943912f2896805fe}{Invia\+File\+To\+One} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia file ad un altro utente registrato \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_add91710e8e2d6158b8f30cde2f04cee0}{Download\+File} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em svolge richiesta download file \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_a3fd2a5d433921a2759121f4a8f5a8700}{Invio\+User\+List} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em invia lista utenti registrati \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_a5427afcd254b93b4f9d9fc34b350aa2a}{Download\+History\+M\+SG} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em scarica l\textquotesingle{}history dell\textquotesingle{}utente sender \end{DoxyCompactList}\item 
+void \hyperlink{mylib_8h_ab47d3930633d5dca199d2f9c316e1937}{Deregistra} (\hyperlink{structmessage__t}{message\+\_\+t} msg, long fd)
+\begin{DoxyCompactList}\small\item\em elimina da hash utente sender \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contiene librerie delle funzioni implementate in \hyperlink{chatty_8c}{chatty.\+c}. 
+
+chatterbox Progetto del corso di L\+SO 2017/2018
+
+Dipartimento di Informatica Università di Pisa Docenti\+: Prencipe, Torquati
+
+\begin{DoxyAuthor}{Author}
+Nicolo` Maio 544935
+\end{DoxyAuthor}
+Si dichiara che il contenuto di questo file e\textquotesingle{} in ogni sua parte opera originale dell\textquotesingle{}autore 
+
+\subsection{Function Documentation}
+\index{mylib.\+h@{mylib.\+h}!Connetti@{Connetti}}
+\index{Connetti@{Connetti}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Connetti(message\+\_\+t msg, long fd)}{Connetti(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}int Connetti (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_a4bc19f152e8dc8b527dec4eaf6707ae5}{}\label{mylib_8h_a4bc19f152e8dc8b527dec4eaf6707ae5}
+
+
+svolge operazione di connessione utente 
+
+Connetti 
+\begin{DoxyParams}{Parameters}
+{\em msg} & messaggio inviato dall\textquotesingle{}utente che si vuole connettere \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che si vuole connettere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se utente connesso con successo -\/1 altrimenti
+\end{DoxyReturn}
+Connetti 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: messaggio inviato dall\textquotesingle{}utente che si vuole connettere \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che si vuole connettere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se utente connesso con successo -\/1 altrimenti 
+\end{DoxyReturn}
+\index{mylib.\+h@{mylib.\+h}!Deregistra@{Deregistra}}
+\index{Deregistra@{Deregistra}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Deregistra(message\+\_\+t msg, long fd)}{Deregistra(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Deregistra (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_ab47d3930633d5dca199d2f9c316e1937}{}\label{mylib_8h_ab47d3930633d5dca199d2f9c316e1937}
+
+
+elimina da hash utente sender 
+
+Deregistra 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene indo utente da deregistrare  fd dell\textquotesingle{}utente che richiede deregistrazione\\
+\hline
+\end{DoxyParams}
+Deregistra 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene indo utente da deregistrare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede deregistrazione \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Download\+File@{Download\+File}}
+\index{Download\+File@{Download\+File}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Download\+File(message\+\_\+t msg, long fd)}{DownloadFile(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Download\+File (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_add91710e8e2d6158b8f30cde2f04cee0}{}\label{mylib_8h_add91710e8e2d6158b8f30cde2f04cee0}
+
+
+svolge richiesta download file 
+
+Download\+File 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene info del file da scaricare \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che richiede Download\+File\\
+\hline
+\end{DoxyParams}
+Download\+File 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info del file da scaricare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede Download\+File \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Download\+History\+M\+SG@{Download\+History\+M\+SG}}
+\index{Download\+History\+M\+SG@{Download\+History\+M\+SG}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Download\+History\+M\+S\+G(message\+\_\+t msg, long fd)}{DownloadHistoryMSG(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Download\+History\+M\+SG (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_a5427afcd254b93b4f9d9fc34b350aa2a}{}\label{mylib_8h_a5427afcd254b93b4f9d9fc34b350aa2a}
+
+
+scarica l\textquotesingle{}history dell\textquotesingle{}utente sender 
+
+Download\+History\+M\+SG 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene info per scaricare history \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che richiede download history\\
+\hline
+\end{DoxyParams}
+Download\+History\+M\+SG 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info per scaricare history \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede download history \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Invia\+File\+To\+One@{Invia\+File\+To\+One}}
+\index{Invia\+File\+To\+One@{Invia\+File\+To\+One}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Invia\+File\+To\+One(message\+\_\+t msg, long fd)}{InviaFileToOne(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invia\+File\+To\+One (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_ab7590df669f603d4943912f2896805fe}{}\label{mylib_8h_ab7590df669f603d4943912f2896805fe}
+
+
+invia file ad un altro utente registrato 
+
+Invia\+File\+To\+One 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene info del file da inviare \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che invia\\
+\hline
+\end{DoxyParams}
+Invia\+File\+To\+One 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info del file da inviare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che invia \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Invia\+Txt\+To\+All@{Invia\+Txt\+To\+All}}
+\index{Invia\+Txt\+To\+All@{Invia\+Txt\+To\+All}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Invia\+Txt\+To\+All(message\+\_\+t msg, long fd)}{InviaTxtToAll(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invia\+Txt\+To\+All (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_afd35590bd0b61aa3c58d74e859340ce8}{}\label{mylib_8h_afd35590bd0b61aa3c58d74e859340ce8}
+
+
+invia messaggio a tutti gli utenti registrati 
+
+Invia\+Txt\+To\+All 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene info messaggio da inviare \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che invia\\
+\hline
+\end{DoxyParams}
+Invia\+Txt\+To\+All 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info messaggio da inviare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che invia \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Invia\+Txt\+To\+One@{Invia\+Txt\+To\+One}}
+\index{Invia\+Txt\+To\+One@{Invia\+Txt\+To\+One}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Invia\+Txt\+To\+One(message\+\_\+t msg, long fd)}{InviaTxtToOne(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invia\+Txt\+To\+One (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_adf455e338c525156c6928198d2370430}{}\label{mylib_8h_adf455e338c525156c6928198d2370430}
+
+
+invia messaggio ad un altro utente registrato 
+
+Invia\+Txt\+To\+One 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene info messaggio da inviare \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che invia\\
+\hline
+\end{DoxyParams}
+Invia\+Txt\+To\+One 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info messaggio da inviare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che invia \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Invio\+User\+List@{Invio\+User\+List}}
+\index{Invio\+User\+List@{Invio\+User\+List}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Invio\+User\+List(message\+\_\+t msg, long fd)}{InvioUserList(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Invio\+User\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_a3fd2a5d433921a2759121f4a8f5a8700}{}\label{mylib_8h_a3fd2a5d433921a2759121f4a8f5a8700}
+
+
+invia lista utenti registrati 
+
+Invio\+User\+List 
+\begin{DoxyParams}{Parameters}
+{\em msg} & contiene info per inviare lista utenti registrati a utente sender \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che richiede User\+List degli utenti registrati\\
+\hline
+\end{DoxyParams}
+Invio\+User\+List 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: contiene info per inviare lista utenti registrati a utente sender \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che richiede User\+List degli utenti registrati \\
+\hline
+\end{DoxyParams}
+\index{mylib.\+h@{mylib.\+h}!Registra@{Registra}}
+\index{Registra@{Registra}!mylib.\+h@{mylib.\+h}}
+\subsubsection[{\texorpdfstring{Registra(message\+\_\+t msg, long fd)}{Registra(message_t msg, long fd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Registra (
+\begin{DoxyParamCaption}
+\item[{{\bf message\+\_\+t}}]{msg, }
+\item[{long}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{mylib_8h_aac41f4a9570a3e9cce662c70262f59e2}{}\label{mylib_8h_aac41f4a9570a3e9cce662c70262f59e2}
+
+
+svolge operazione di registrazione utente 
+
+Registra 
+\begin{DoxyParams}{Parameters}
+{\em msg} & messaggio inviato dall\textquotesingle{}utente che si vuole registrare \\
+\hline
+{\em fd} & fd dell\textquotesingle{}utente che si vuole registrare\\
+\hline
+\end{DoxyParams}
+Registra 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+: messaggio inviato dall\textquotesingle{}utente che si vuole registrare \\
+\hline
+{\em fd} & \+: indirizzo dell\textquotesingle{}utente che si vuole registrare \\
+\hline
+\end{DoxyParams}

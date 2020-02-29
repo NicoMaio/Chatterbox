@@ -1,0 +1,119 @@
+\hypertarget{queue_8h}{}\section{queue.\+h File Reference}
+\label{queue_8h}\index{queue.\+h@{queue.\+h}}
+
+
+Contiene librerie delle funzioni implementate in \hyperlink{queue_8c}{queue.\+c}.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structNode}{Node}
+\begin{DoxyCompactList}\small\item\em contiene info di un nodo della coda \end{DoxyCompactList}\item 
+struct \hyperlink{structQueue__t}{Queue\+\_\+t}
+\begin{DoxyCompactList}\small\item\em contiene info della coda \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structNode}{Node} {\bfseries Node}\hypertarget{queue_8h_a3b09f37e675bcd48a01bf22155996872}{}\label{queue_8h_a3b09f37e675bcd48a01bf22155996872}
+
+\item 
+typedef struct \hyperlink{structQueue__t}{Queue\+\_\+t} {\bfseries Queue}\hypertarget{queue_8h_a1555a627597643426b2e868963f1bc22}{}\label{queue_8h_a1555a627597643426b2e868963f1bc22}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structQueue__t}{Queue} $\ast$ \hyperlink{queue_8h_aa0ab60a964e9698ea267007ff5a7e8e0}{init\+Queue} ()
+\begin{DoxyCompactList}\small\item\em inizializza la coda \end{DoxyCompactList}\item 
+void \hyperlink{queue_8h_a862a3d360e6886a16b0362b2c62122e9}{Delete\+Queue} (\hyperlink{structQueue__t}{Queue} $\ast$q)
+\begin{DoxyCompactList}\small\item\em elimina coda \end{DoxyCompactList}\item 
+void \hyperlink{queue_8h_a0fb0cb634e92923539047fbe01a93eb0}{Push} (\hyperlink{structQueue__t}{Queue} $\ast$q, long connfd)
+\begin{DoxyCompactList}\small\item\em inserisce fd in coda \end{DoxyCompactList}\item 
+long \hyperlink{queue_8h_aa883f1b7632a58381e0bd0ec76b9f407}{Pop} (\hyperlink{structQueue__t}{Queue} $\ast$q)
+\begin{DoxyCompactList}\small\item\em estrae primo elemento della coda \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contiene librerie delle funzioni implementate in \hyperlink{queue_8c}{queue.\+c}. 
+
+chatterbox Progetto del corso di L\+SO 2017/2018
+
+Dipartimento di Informatica Università di Pisa Docenti\+: Prencipe, Torquati
+
+\begin{DoxyAuthor}{Author}
+Nicolo` Maio 544935
+\end{DoxyAuthor}
+Si dichiara che il contenuto di questo file e\textquotesingle{} in ogni sua parte opera originale dell\textquotesingle{}autore 
+
+\subsection{Function Documentation}
+\index{queue.\+h@{queue.\+h}!Delete\+Queue@{Delete\+Queue}}
+\index{Delete\+Queue@{Delete\+Queue}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{Delete\+Queue(\+Queue $\ast$q)}{DeleteQueue(Queue *q)}}]{\setlength{\rightskip}{0pt plus 5cm}void Delete\+Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Queue} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_a862a3d360e6886a16b0362b2c62122e9}{}\label{queue_8h_a862a3d360e6886a16b0362b2c62122e9}
+
+
+elimina coda 
+
+Delete\+Queue 
+\begin{DoxyParams}{Parameters}
+{\em q} & puntatore a coda da eliminare \\
+\hline
+\end{DoxyParams}
+\index{queue.\+h@{queue.\+h}!init\+Queue@{init\+Queue}}
+\index{init\+Queue@{init\+Queue}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{init\+Queue()}{initQueue()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Queue}$\ast$ init\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_aa0ab60a964e9698ea267007ff5a7e8e0}{}\label{queue_8h_aa0ab60a964e9698ea267007ff5a7e8e0}
+
+
+inizializza la coda 
+
+init\+Queue \begin{DoxyReturn}{Returns}
+una queue inizializzata 
+\end{DoxyReturn}
+\index{queue.\+h@{queue.\+h}!Pop@{Pop}}
+\index{Pop@{Pop}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{Pop(\+Queue $\ast$q)}{Pop(Queue *q)}}]{\setlength{\rightskip}{0pt plus 5cm}long Pop (
+\begin{DoxyParamCaption}
+\item[{{\bf Queue} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_aa883f1b7632a58381e0bd0ec76b9f407}{}\label{queue_8h_aa883f1b7632a58381e0bd0ec76b9f407}
+
+
+estrae primo elemento della coda 
+
+Pop 
+\begin{DoxyParams}{Parameters}
+{\em q} & coda da cui estrarre fd\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+fd estratto 
+\end{DoxyReturn}
+\index{queue.\+h@{queue.\+h}!Push@{Push}}
+\index{Push@{Push}!queue.\+h@{queue.\+h}}
+\subsubsection[{\texorpdfstring{Push(\+Queue $\ast$q, long connfd)}{Push(Queue *q, long connfd)}}]{\setlength{\rightskip}{0pt plus 5cm}void Push (
+\begin{DoxyParamCaption}
+\item[{{\bf Queue} $\ast$}]{q, }
+\item[{long}]{c\+\_\+fd}
+\end{DoxyParamCaption}
+)}\hypertarget{queue_8h_a0fb0cb634e92923539047fbe01a93eb0}{}\label{queue_8h_a0fb0cb634e92923539047fbe01a93eb0}
+
+
+inserisce fd in coda 
+
+Push 
+\begin{DoxyParams}{Parameters}
+{\em q} & coda in cui inserire fd \\
+\hline
+{\em connfd} & fd da inserire in coda \\
+\hline
+\end{DoxyParams}
